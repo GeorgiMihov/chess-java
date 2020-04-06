@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9950b181-b297-45d8-9733-4dbc4e174c51" name="Default Changelist" comment="" />
+    <list default="true" id="9950b181-b297-45d8-9733-4dbc4e174c51" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/StartMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/StartMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/resources/bbishop.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/resources/blackBishop.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/resources/bking.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/resources/blackKing.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/resources/bknight.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/resources/blackKnight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/resources/bp.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/resources/blackPawnIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/resources/bpawn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/resources/blackPawn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/resources/bqueen.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/resources/blackQueen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/resources/brook.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/resources/blackRook.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/resources/wbishop.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/resources/whiteBishop.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/resources/wking.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/resources/whiteKing.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/resources/wknight.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/resources/whiteKnight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/resources/wp.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/resources/whitePawnIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/resources/wpawn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/resources/whitePawn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/resources/wqueen.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/resources/whiteQueen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/chess/resources/wrook.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/chess/resources/whiteRook.png" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1a9f5XWMii0pheLcUMjzmtLa2pJ" />
   <component name="ProjectViewState">
@@ -14,7 +37,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -41,53 +68,6 @@
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <module name="chess-java" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
-      <module name="chess-java" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -137,35 +117,51 @@
       <screen x="3840" y="0" width="1920" height="1040" />
     </state>
     <state x="4529" y="305" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586182896116" />
-    <state x="4580" y="276" key="FileChooserDialogImpl" timestamp="1586180649484">
+    <state x="4580" y="276" key="FileChooserDialogImpl" timestamp="1586184602854">
       <screen x="3840" y="0" width="1920" height="1040" />
     </state>
-    <state x="4580" y="276" key="FileChooserDialogImpl/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586180649484" />
-    <state width="1878" height="282" key="GridCell.Tab.0.bottom" timestamp="1586183563178">
+    <state x="4580" y="276" key="FileChooserDialogImpl/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586184602854" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1586185066583">
       <screen x="3840" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586183563178" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586185066583" />
     <state width="1878" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586152798483" />
-    <state width="1878" height="282" key="GridCell.Tab.0.center" timestamp="1586183563178">
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1586185066583">
       <screen x="3840" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586183563178" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586185066583" />
     <state width="1878" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586152798483" />
-    <state width="1878" height="282" key="GridCell.Tab.0.left" timestamp="1586183563178">
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1586185066582">
       <screen x="3840" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586183563178" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586185066582" />
     <state width="1878" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586152798482" />
-    <state width="1878" height="282" key="GridCell.Tab.0.right" timestamp="1586183563178">
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1586185066583">
       <screen x="3840" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586183563178" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586185066583" />
     <state width="1878" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586152798483" />
-    <state x="4207" y="303" width="744" height="606" key="find.popup" timestamp="1586180210083">
+    <state x="4280" y="95" key="SettingsEditor" timestamp="1586184333177">
+      <screen x="3840" y="0" width="1920" height="1040" />
+    </state>
+    <state x="4280" y="95" key="SettingsEditor/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586184333177" />
+    <state x="3932" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586184508441">
+      <screen x="3840" y="0" width="1920" height="1040" />
+    </state>
+    <state x="3932" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586184508441" />
+    <state x="4496" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1586184532335">
+      <screen x="3840" y="0" width="1920" height="1040" />
+    </state>
+    <state x="4496" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586184532335" />
+    <state x="4207" y="303" width="744" height="606" key="find.popup" timestamp="1586185742250">
       <screen x="3840" y="0" width="1920" height="1040" />
     </state>
     <state x="587" y="216" width="744" height="606" key="find.popup/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1586164931948" />
-    <state x="4207" y="303" width="744" height="606" key="find.popup/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586180210083" />
+    <state x="4207" y="303" width="744" height="606" key="find.popup/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586185742250" />
     <state x="587" y="216" width="744" height="606" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586152855450" />
+    <state x="3932" y="92" width="1736" height="856" key="git4idea.log.GitShowExternalLogAction" timestamp="1586184508441">
+      <screen x="3840" y="0" width="1920" height="1040" />
+    </state>
+    <state x="3932" y="92" width="1736" height="856" key="git4idea.log.GitShowExternalLogAction/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586184508441" />
   </component>
 </project>

@@ -32,10 +32,10 @@ public class GameWindow {
         
 
         try {
-            Image whiteImg = ImageIO.read(getClass().getResource("resources/wp.png"));
+            Image whiteImg = ImageIO.read(getClass().getResource("resources/whitePawnIcon.png"));
             gameWindow.setIconImage(whiteImg);
         } catch (Exception e) {
-            System.out.println("Game file wp.png not found");
+            System.out.println("Game file whitePawnIcon.png not found");
         }
 
         gameWindow.setLocation(100, 100);

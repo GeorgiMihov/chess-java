@@ -39,11 +39,11 @@ public class StartMenu implements Runnable {
         components.add(blackPanel, BorderLayout.EAST);
         final JLabel blackPiece = new JLabel();
         try {
-            Image blackImg = ImageIO.read(getClass().getResource("resources/bp.png"));
+            Image blackImg = ImageIO.read(getClass().getResource("resources/blackPawnIcon.png"));
             blackPiece.setIcon(new ImageIcon(blackImg));
             blackPanel.add(blackPiece);
         } catch (Exception e) {
-            System.out.println("Required game file bp.png missing");
+            System.out.println("Required game file blackPawnIcon.png missing");
         }
         
         
@@ -57,12 +57,12 @@ public class StartMenu implements Runnable {
         final JLabel whitePiece = new JLabel();
         
         try {
-            Image whiteImg = ImageIO.read(getClass().getResource("resources/wp.png"));
+            Image whiteImg = ImageIO.read(getClass().getResource("resources/whitePawnIcon.png"));
             whitePiece.setIcon(new ImageIcon(whiteImg));
             whitePanel.add(whitePiece);
             startWindow.setIconImage(whiteImg);
         }  catch (Exception e) {
-            System.out.println("Required game file wp.png missing");
+            System.out.println("Required game file whitePawnIcon.png missing");
         }
         
         
