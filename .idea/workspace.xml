@@ -14,7 +14,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../chess-java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -23,8 +23,8 @@
   </component>
   <component name="RunManager" selected="Application.Game">
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.chessGame.Game" />
-      <module name="chessGame" />
+      <option name="MAIN_CLASS_NAME" value="com.chess.Game" />
+      <module name="chess-java" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.chessGame.*" />
@@ -37,10 +37,57 @@
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.chessGame.Main" />
-      <module name="chessGame" />
+      <module name="chess-java" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="chess-java" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <module name="chess-java" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -82,29 +129,37 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="4254" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586182899111">
+      <screen x="3840" y="0" width="1920" height="1040" />
+    </state>
+    <state x="4254" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586182899111" />
+    <state x="4529" y="305" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1586182896116">
+      <screen x="3840" y="0" width="1920" height="1040" />
+    </state>
+    <state x="4529" y="305" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586182896116" />
     <state x="4580" y="276" key="FileChooserDialogImpl" timestamp="1586180649484">
       <screen x="3840" y="0" width="1920" height="1040" />
     </state>
     <state x="4580" y="276" key="FileChooserDialogImpl/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586180649484" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1586180214578">
+    <state width="1878" height="282" key="GridCell.Tab.0.bottom" timestamp="1586183417381">
       <screen x="3840" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586180214578" />
+    <state width="1878" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586183417381" />
     <state width="1878" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586152798483" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1586180214578">
+    <state width="1878" height="282" key="GridCell.Tab.0.center" timestamp="1586183417381">
       <screen x="3840" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586180214578" />
+    <state width="1878" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586183417381" />
     <state width="1878" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586152798483" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1586180214577">
+    <state width="1878" height="282" key="GridCell.Tab.0.left" timestamp="1586183417380">
       <screen x="3840" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586180214577" />
+    <state width="1878" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586183417380" />
     <state width="1878" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586152798482" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1586180214578">
+    <state width="1878" height="282" key="GridCell.Tab.0.right" timestamp="1586183417381">
       <screen x="3840" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586180214578" />
+    <state width="1878" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/3840.0.1920.1040@3840.0.1920.1040" timestamp="1586183417381" />
     <state width="1878" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586152798483" />
     <state x="4207" y="303" width="744" height="606" key="find.popup" timestamp="1586180210083">
       <screen x="3840" y="0" width="1920" height="1040" />
