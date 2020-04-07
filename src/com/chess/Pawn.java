@@ -23,8 +23,8 @@ public class Pawn extends Piece {
         
         Square[][] board = b.getSquareArray();
         
-        int x = this.getPosition().getXNum();
-        int y = this.getPosition().getYNum();
+        int x = this.getPosition().getColumnPosition();
+        int y = this.getPosition().getRowPosition();
         int c = this.getColor();
         
         if (c == 0) {

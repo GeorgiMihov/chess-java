@@ -15,8 +15,8 @@ LinkedList<Square> legalMoves = new LinkedList<Square>();
         
         Square[][] board = b.getSquareArray();
         
-        int x = this.getPosition().getXNum();
-        int y = this.getPosition().getYNum();
+        int x = this.getPosition().getColumnPosition();
+        int y = this.getPosition().getRowPosition();
         
         for (int i = 1; i > -2; i--) {
             for (int k = 1; k > -2; k--) {

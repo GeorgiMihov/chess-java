@@ -12,15 +12,15 @@ import javax.imageio.ImageIO;
 public abstract class Piece {
     private final int color;
     private Square currentSquare;
-    private BufferedImage img;
+    private BufferedImage image;
     
-    public Piece(int color, Square initSq, String img_file) {
+    public Piece(int color, Square initializingSquare, String imageFile) {
         this.color = color;
-        this.currentSquare = initSq;
+        this.currentSquare = initializingSquare;
         
         try {
-            if (this.img == null) {
-              this.img = ImageIO.read(getClass().getResource(img_file));
+            if (this.image == null) {
+              this.image = ImageIO.read(getClass().getResource(imageFile));
             }
           } catch (IOException e) {
             System.out.println("File not found: " + e.getMessage());
@@ -54,14 +54,14 @@ public abstract class Piece {
     }
     
     public Image getImage() {
-        return img;
+        return image;
     }
     
     public void draw(Graphics g) {
         int x = currentSquare.getX();
         int y = currentSquare.getY();
         
-        g.drawImage(this.img, x, y, null);
+        g.drawImage(this.image, x, y, null);
     }
     
     public int[] getLinearOccupations(Square[][] board, int x, int y) {

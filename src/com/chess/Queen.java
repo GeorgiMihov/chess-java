@@ -14,8 +14,8 @@ public class Queen extends Piece {
         LinkedList<Square> legalMoves = new LinkedList<Square>();
         Square[][] board = b.getSquareArray();
         
-        int x = this.getPosition().getXNum();
-        int y = this.getPosition().getYNum();
+        int x = this.getPosition().getColumnPosition();
+        int y = this.getPosition().getRowPosition();
         
         int[] occups = getLinearOccupations(board, x, y);
         

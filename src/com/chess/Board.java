@@ -172,7 +172,7 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
                 return;
             if (currPiece.getColor() == 1 && !whiteTurn)
                 return;
-            sq.setDisplay(false);
+            sq.setIsDisplayingPiece(false);
         }
         repaint();
     }
@@ -192,7 +192,7 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
 
             if (legalMoves.contains(sq) && movable.contains(sq)
                     && cmd.testMove(currPiece, sq)) {
-                sq.setDisplay(true);
+                sq.setIsDisplayingPiece(true);
                 currPiece.move(sq);
                 cmd.update();
 
@@ -215,7 +215,7 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
                 }
 
             } else {
-                currPiece.getPosition().setDisplay(true);
+                currPiece.getPosition().setIsDisplayingPiece(true);
                 currPiece = null;
             }
         }
