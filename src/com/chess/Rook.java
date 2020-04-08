@@ -10,14 +10,14 @@ public class Rook extends Piece {
     }
 
     @Override
-    public List<Square> getLegalMoves(Board b) {
+    public List<Square> getLegalMoves(Board gameBoard) {
         LinkedList<Square> legalMoves = new LinkedList<Square>();
-        Square[][] board = b.getSquareArray();
+        Square[][] board = gameBoard.getSquareArray();
         
-        int x = this.getPosition().getColumnPosition();
-        int y = this.getPosition().getRowPosition();
+        int x = this.getCurrentSquare().getColumnPosition();
+        int y = this.getCurrentSquare().getRowPosition();
         
-        int[] occups = getLinearOccupations(board, x, y);
+        int[] occups = getAvailableLinearOccupations(board);
         
         for (int i = occups[0]; i <= occups[1]; i++) {
             if (i != y) legalMoves.add(board[i][x]);

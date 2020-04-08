@@ -215,7 +215,7 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
                 }
 
             } else {
-                currPiece.getPosition().setIsDisplayingPiece(true);
+                currPiece.getCurrentSquare().setIsDisplayingPiece(true);
                 currPiece = null;
             }
         }

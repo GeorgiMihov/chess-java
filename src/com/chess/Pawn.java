@@ -11,20 +11,20 @@ public class Pawn extends Piece {
     }
     
     @Override
-    public boolean move(Square fin) {
-        boolean b = super.move(fin);
+    public boolean move(Square destination) {
+        boolean b = super.move(destination);
         wasMoved = true;
         return b;
     }
 
     @Override
-    public List<Square> getLegalMoves(Board b) {
+    public List<Square> getLegalMoves(Board gameBoard) {
         LinkedList<Square> legalMoves = new LinkedList<Square>();
         
-        Square[][] board = b.getSquareArray();
+        Square[][] board = gameBoard.getSquareArray();
         
-        int x = this.getPosition().getColumnPosition();
-        int y = this.getPosition().getRowPosition();
+        int x = this.getCurrentSquare().getColumnPosition();
+        int y = this.getCurrentSquare().getRowPosition();
         int c = this.getColor();
         
         if (c == 0) {

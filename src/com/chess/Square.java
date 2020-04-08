@@ -51,7 +51,7 @@ public class Square extends JComponent {
     
     public void put(Piece piece) {
         this.occupyingPiece = piece;
-        piece.setPosition(this);
+        piece.setCurrentSquare(this);
     }
     
     public Piece removePiece() {
