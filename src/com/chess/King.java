@@ -10,13 +10,13 @@ public class King extends Piece {
     }
 
     @Override
-    public List<Square> getLegalMoves(Board b) {
+    public List<Square> getLegalMoves(Board gameBoard) {
 LinkedList<Square> legalMoves = new LinkedList<Square>();
         
-        Square[][] board = b.getSquareArray();
+        Square[][] board = gameBoard.getSquareArray();
         
-        int x = this.getPosition().getXNum();
-        int y = this.getPosition().getYNum();
+        int x = this.getCurrentSquare().getColumnPosition();
+        int y = this.getCurrentSquare().getRowPosition();
         
         for (int i = 1; i > -2; i--) {
             for (int k = 1; k > -2; k--) {

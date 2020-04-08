@@ -7,24 +7,21 @@ import javax.swing.*;
 
 @SuppressWarnings("serial")
 public class Square extends JComponent {
-    private Board b;
-    
+    private static final int LIGHT_BOARD_COLOR_IDENTIFIER = 1;
+
+    private Board board;
     private final int color;
     private Piece occupyingPiece;
-    private boolean dispPiece;
+    private boolean isDisplayingPiece;
+    private int columnPosition;
+    private int rowPosition;
     
-    private int xNum;
-    private int yNum;
-    
-    public Square(Board b, int c, int xNum, int yNum) {
-        
-        this.b = b;
-        this.color = c;
-        this.dispPiece = true;
-        this.xNum = xNum;
-        this.yNum = yNum;
-        
-        
+    public Square(Board board, int color, int columnPosition, int rowPosition) {
+        this.board = board;
+        this.color = color;
+        this.isDisplayingPiece = true;
+        this.columnPosition = columnPosition;
+        this.rowPosition = rowPosition;
         this.setBorder(BorderFactory.createEmptyBorder());
     }
     
@@ -33,56 +30,58 @@ public class Square extends JComponent {
     }
     
     public Piece getOccupyingPiece() {
-        return occupyingPiece;
+        return this.occupyingPiece;
     }
     
     public boolean isOccupied() {
-        return (this.occupyingPiece != null);
+        return this.occupyingPiece != null;
     }
     
-    public int getXNum() {
-        return this.xNum;
+    public int getColumnPosition() {
+        return this.columnPosition;
     }
     
-    public int getYNum() {
-        return this.yNum;
+    public int getRowPosition() {
+        return this.rowPosition;
     }
     
-    public void setDisplay(boolean v) {
-        this.dispPiece = v;
+    public void setIsDisplayingPiece(boolean value) {
+        this.isDisplayingPiece = value;
     }
     
-    public void put(Piece p) {
-        this.occupyingPiece = p;
-        p.setPosition(this);
+    public void put(Piece piece) {
+        this.occupyingPiece = piece;
+        piece.setCurrentSquare(this);
     }
     
     public Piece removePiece() {
-        Piece p = this.occupyingPiece;
+        Piece removed = this.occupyingPiece;
         this.occupyingPiece = null;
-        return p;
+        return removed;
     }
     
-    public void capture(Piece p) {
-        Piece k = getOccupyingPiece();
-        if (k.getColor() == 0) b.Bpieces.remove(k);
-        if (k.getColor() == 1) b.Wpieces.remove(k);
-        this.occupyingPiece = p;
+    public void capture(Piece newOccupier) {
+        Piece currentOccupier = this.getOccupyingPiece();
+        if (currentOccupier.getColor() == 0) board.Bpieces.remove(currentOccupier);
+        if (currentOccupier.getColor() == 1) board.Wpieces.remove(currentOccupier);
+        this.occupyingPiece = newOccupier;
     }
     
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        
-        if (this.color == 1) {
-            g.setColor(new Color(221,192,127));
-        } else {
-            g.setColor(new Color(101,67,33));
+    public void paintComponent(Graphics graphics) {
+        super.paintComponent(graphics);
+        this.paintSquare(graphics);
+        graphics.fillRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+
+        if(this.isOccupied() && this.isDisplayingPiece) {
+            occupyingPiece.draw(graphics);
         }
-        
-        g.fillRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
-        
-        if(occupyingPiece != null && dispPiece) {
-            occupyingPiece.draw(g);
+    }
+
+    private void paintSquare(Graphics graphics) {
+        if (this.color == LIGHT_BOARD_COLOR_IDENTIFIER) {
+            graphics.setColor(new Color(221,192,127));
+        } else {
+            graphics.setColor(new Color(101,67,33));
         }
     }
     
@@ -90,9 +89,8 @@ public class Square extends JComponent {
     public int hashCode() {
         int prime = 31;
         int result = 1;
-        result = prime * result + xNum;
-        result = prime * result + yNum;
+        result = prime * result + columnPosition;
+        result = prime * result + rowPosition;
         return result;
     }
-    
 }

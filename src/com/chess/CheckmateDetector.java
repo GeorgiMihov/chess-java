@@ -88,7 +88,7 @@ public class CheckmateDetector {
             Piece p = wIter.next();
 
             if (!p.getClass().equals(King.class)) {
-                if (p.getPosition() == null) {
+                if (p.getCurrentSquare() == null) {
                     wIter.remove();
                     continue;
                 }
@@ -106,7 +106,7 @@ public class CheckmateDetector {
             Piece p = bIter.next();
             
             if (!p.getClass().equals(King.class)) {
-                if (p.getPosition() == null) {
+                if (p.getCurrentSquare() == null) {
                     wIter.remove();
                     continue;
                 }
@@ -127,7 +127,7 @@ public class CheckmateDetector {
      */
     public boolean blackInCheck() {
         update();
-        Square sq = bk.getPosition();
+        Square sq = bk.getCurrentSquare();
         if (wMoves.get(sq).isEmpty()) {
             movableSquares.addAll(squares);
             return false;
@@ -140,7 +140,7 @@ public class CheckmateDetector {
      */
     public boolean whiteInCheck() {
         update();
-        Square sq = wk.getPosition();
+        Square sq = wk.getCurrentSquare();
         if (bMoves.get(sq).isEmpty()) {
             movableSquares.addAll(squares);
             return false;
@@ -160,7 +160,7 @@ public class CheckmateDetector {
         if (canEvade(wMoves, bk)) checkmate = false;
         
         // If no, check if threat can be captured
-        List<Piece> threats = wMoves.get(bk.getPosition());
+        List<Piece> threats = wMoves.get(bk.getCurrentSquare());
         if (canCapture(bMoves, threats, bk)) checkmate = false;
         
         // If no, check if threat can be blocked
@@ -183,7 +183,7 @@ public class CheckmateDetector {
         if (canEvade(bMoves, wk)) checkmate = false;
         
         // If no, check if threat can be captured
-        List<Piece> threats = bMoves.get(wk.getPosition());
+        List<Piece> threats = bMoves.get(wk.getCurrentSquare());
         if (canCapture(wMoves, threats, wk)) checkmate = false;
         
         // If no, check if threat can be blocked
@@ -223,7 +223,7 @@ public class CheckmateDetector {
         
         boolean capture = false;
         if (threats.size() == 1) {
-            Square sq = threats.get(0).getPosition();
+            Square sq = threats.get(0).getCurrentSquare();
             
             if (k.getLegalMoves(b).contains(sq)) {
                 movableSquares.add(sq);
@@ -257,26 +257,26 @@ public class CheckmateDetector {
         boolean blockable = false;
         
         if (threats.size() == 1) {
-            Square ts = threats.get(0).getPosition();
-            Square ks = k.getPosition();
+            Square ts = threats.get(0).getCurrentSquare();
+            Square ks = k.getCurrentSquare();
             Square[][] brdArray = b.getSquareArray();
             
-            if (ks.getXNum() == ts.getXNum()) {
-                int max = Math.max(ks.getYNum(), ts.getYNum());
-                int min = Math.min(ks.getYNum(), ts.getYNum());
+            if (ks.getColumnPosition() == ts.getColumnPosition()) {
+                int max = Math.max(ks.getRowPosition(), ts.getRowPosition());
+                int min = Math.min(ks.getRowPosition(), ts.getRowPosition());
                 
                 for (int i = min + 1; i < max; i++) {
                     List<Piece> blks = 
-                            blockMoves.get(brdArray[i][ks.getXNum()]);
+                            blockMoves.get(brdArray[i][ks.getColumnPosition()]);
                     ConcurrentLinkedDeque<Piece> blockers = 
                             new ConcurrentLinkedDeque<Piece>();
                     blockers.addAll(blks);
                     
                     if (!blockers.isEmpty()) {
-                        movableSquares.add(brdArray[i][ks.getXNum()]);
+                        movableSquares.add(brdArray[i][ks.getColumnPosition()]);
                         
                         for (Piece p : blockers) {
-                            if (testMove(p,brdArray[i][ks.getXNum()])) {
+                            if (testMove(p,brdArray[i][ks.getColumnPosition()])) {
                                 blockable = true;
                             }
                         }
@@ -285,23 +285,23 @@ public class CheckmateDetector {
                 }
             }
             
-            if (ks.getYNum() == ts.getYNum()) {
-                int max = Math.max(ks.getXNum(), ts.getXNum());
-                int min = Math.min(ks.getXNum(), ts.getXNum());
+            if (ks.getRowPosition() == ts.getRowPosition()) {
+                int max = Math.max(ks.getColumnPosition(), ts.getColumnPosition());
+                int min = Math.min(ks.getColumnPosition(), ts.getColumnPosition());
                 
                 for (int i = min + 1; i < max; i++) {
                     List<Piece> blks = 
-                            blockMoves.get(brdArray[ks.getYNum()][i]);
+                            blockMoves.get(brdArray[ks.getRowPosition()][i]);
                     ConcurrentLinkedDeque<Piece> blockers = 
                             new ConcurrentLinkedDeque<Piece>();
                     blockers.addAll(blks);
                     
                     if (!blockers.isEmpty()) {
                         
-                        movableSquares.add(brdArray[ks.getYNum()][i]);
+                        movableSquares.add(brdArray[ks.getRowPosition()][i]);
                         
                         for (Piece p : blockers) {
-                            if (testMove(p, brdArray[ks.getYNum()][i])) {
+                            if (testMove(p, brdArray[ks.getRowPosition()][i])) {
                                 blockable = true;
                             }
                         }
@@ -313,10 +313,10 @@ public class CheckmateDetector {
             Class<? extends Piece> tC = threats.get(0).getClass();
             
             if (tC.equals(Queen.class) || tC.equals(Bishop.class)) {
-                int kX = ks.getXNum();
-                int kY = ks.getYNum();
-                int tX = ts.getXNum();
-                int tY = ts.getYNum();
+                int kX = ks.getColumnPosition();
+                int kY = ks.getRowPosition();
+                int tX = ts.getColumnPosition();
+                int tY = ts.getRowPosition();
                 
                 if (kX > tX && kY > tY) {
                     for (int i = tX + 1; i < kX; i++) {
@@ -436,7 +436,7 @@ public class CheckmateDetector {
         Piece c = sq.getOccupyingPiece();
         
         boolean movetest = true;
-        Square init = p.getPosition();
+        Square init = p.getCurrentSquare();
         
         p.move(sq);
         update();

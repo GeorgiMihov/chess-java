@@ -12,176 +12,224 @@ import javax.imageio.ImageIO;
 public abstract class Piece {
     private final int color;
     private Square currentSquare;
-    private BufferedImage img;
+    private BufferedImage image;
     
-    public Piece(int color, Square initSq, String img_file) {
+    public Piece(int color, Square initializingSquare, String imageFileName) {
         this.color = color;
-        this.currentSquare = initSq;
-        
-        try {
-            if (this.img == null) {
-              this.img = ImageIO.read(getClass().getResource(img_file));
-            }
-          } catch (IOException e) {
-            System.out.println("File not found: " + e.getMessage());
-          }
+        this.currentSquare = initializingSquare;
+        this.initializeImage(imageFileName);
     }
-    
-    public boolean move(Square fin) {
-        Piece occup = fin.getOccupyingPiece();
+
+    private void initializeImage(String imageFileName) {
+        try {
+            if (this.image == null) {
+                this.image = ImageIO.read(getClass().getResource(imageFileName));
+            }
+        } catch (IOException e) {
+            System.out.println("File not found: " + e.getMessage());
+        }
+    }
+
+    public boolean move(Square destination) {
+        Piece occupant = destination.getOccupyingPiece();
         
-        if (occup != null) {
-            if (occup.getColor() == this.color) return false;
-            else fin.capture(this);
+        if (occupant != null) {
+            if (occupant.getColor() == this.color) {
+                return false;
+            } else {
+                destination.capture(this);
+            }
         }
         
         currentSquare.removePiece();
-        this.currentSquare = fin;
+        this.setCurrentSquare(destination);
         currentSquare.put(this);
         return true;
     }
     
-    public Square getPosition() {
-        return currentSquare;
+    public Square getCurrentSquare() {
+        return this.currentSquare;
     }
     
-    public void setPosition(Square sq) {
-        this.currentSquare = sq;
+    public void setCurrentSquare(Square newSquare) {
+        this.currentSquare = newSquare;
     }
     
     public int getColor() {
-        return color;
+        return this.color;
     }
     
     public Image getImage() {
-        return img;
+        return this.image;
     }
     
-    public void draw(Graphics g) {
+    public void draw(Graphics graphics) {
         int x = currentSquare.getX();
         int y = currentSquare.getY();
         
-        g.drawImage(this.img, x, y, null);
+        graphics.drawImage(this.image, x, y, null);
     }
     
-    public int[] getLinearOccupations(Square[][] board, int x, int y) {
-        int lastYabove = 0;
-        int lastXright = 7;
-        int lastYbelow = 7;
-        int lastXleft = 0;
+    public int[] getAvailableLinearOccupations(Square[][] board) {
+        int column = this.currentSquare.getColumnPosition();
+        int row = this.currentSquare.getRowPosition();
+
+        int closestOccupationAbove = this.getAvailableOccupationAbove(board, column, row);
+        int closestOccupationBelow = this.getAvailableOccupationBelow(board, column, row);
+        int closestOccupationLeft = this.getAvailableOccupationLeft(board, column, row);
+        int closestOccupationRight = this.getAvailableOccupationRight(board, column, row);
+        int[] occupations = {closestOccupationAbove, closestOccupationBelow, closestOccupationLeft, closestOccupationRight};
         
-        for (int i = 0; i < y; i++) {
-            if (board[i][x].isOccupied()) {
-                if (board[i][x].getOccupyingPiece().getColor() != this.color) {
-                    lastYabove = i;
-                } else lastYabove = i + 1;
+        return occupations;
+    }
+
+    private int getAvailableOccupationAbove(Square[][] board, int column, int row) {
+        int closestOccupationAbove = 0;
+
+        for (int i = 0; i < row; i++) {
+            if (board[i][column].isOccupied()) {
+                if (board[i][column].getOccupyingPiece().getColor() != this.color) {
+                    closestOccupationAbove = i;
+                } else {
+                    closestOccupationAbove = i + 1;
+                }
             }
         }
 
-        for (int i = 7; i > y; i--) {
-            if (board[i][x].isOccupied()) {
-                if (board[i][x].getOccupyingPiece().getColor() != this.color) {
-                    lastYbelow = i;
-                } else lastYbelow = i - 1;
+        return closestOccupationAbove;
+    }
+
+    private int getAvailableOccupationRight(Square[][] board, int column, int row) {
+        int closestOccupationRight = 7;
+
+        for (int i = 7; i > column; i--) {
+            if (board[row][i].isOccupied()) {
+                if (board[row][i].getOccupyingPiece().getColor() != this.color) {
+                    closestOccupationRight = i;
+                } else {
+                    closestOccupationRight = i - 1;
+                }
             }
         }
 
-        for (int i = 0; i < x; i++) {
-            if (board[y][i].isOccupied()) {
-                if (board[y][i].getOccupyingPiece().getColor() != this.color) {
-                    lastXleft = i;
-                } else lastXleft = i + 1;
+        return closestOccupationRight;
+    }
+
+    private int getAvailableOccupationBelow(Square[][] board, int column, int row) {
+        int closestOccupationBelow = 7;
+
+        for (int i = 7; i > row; i--) {
+            if (board[i][column].isOccupied()) {
+                if (board[i][column].getOccupyingPiece().getColor() != this.color) {
+                    closestOccupationBelow = i;
+                } else {
+                    closestOccupationBelow = i - 1;
+                }
             }
         }
 
-        for (int i = 7; i > x; i--) {
-            if (board[y][i].isOccupied()) {
-                if (board[y][i].getOccupyingPiece().getColor() != this.color) {
-                    lastXright = i;
-                } else lastXright = i - 1;
+        return closestOccupationBelow;
+    }
+
+    private int getAvailableOccupationLeft(Square[][] board, int column, int row) {
+        int closestOccupationLeft = 0;
+
+        for (int i = 0; i < column; i++) {
+            if (board[row][i].isOccupied()) {
+                if (board[row][i].getOccupyingPiece().getColor() != this.color) {
+                    closestOccupationLeft = i;
+                } else {
+                    closestOccupationLeft = i + 1;
+                }
             }
         }
-        
-        int[] occups = {lastYabove, lastYbelow, lastXleft, lastXright};
-        
-        return occups;
+
+        return closestOccupationLeft;
     }
     
-    public List<Square> getDiagonalOccupations(Square[][] board, int x, int y) {
-        LinkedList<Square> diagOccup = new LinkedList<Square>();
-        
-        int xNW = x - 1;
-        int xSW = x - 1;
-        int xNE = x + 1;
-        int xSE = x + 1;
-        int yNW = y - 1;
-        int ySW = y + 1;
-        int yNE = y - 1;
-        int ySE = y + 1;
-        
-        while (xNW >= 0 && yNW >= 0) {
-            if (board[yNW][xNW].isOccupied()) {
-                if (board[yNW][xNW].getOccupyingPiece().getColor() == this.color) {
-                    break;
-                } else {
-                    diagOccup.add(board[yNW][xNW]);
-                    break;
+    public List<Square> getAvailableDiagonalOccupations(Square[][] board) {
+        LinkedList<Square> diagonalOccupations = new LinkedList<>();
+
+        this.getTopLeftOccupations(diagonalOccupations, board);
+        this.getTopRightOccupations(diagonalOccupations, board);
+        this.getBottomLeftOccupations(diagonalOccupations, board);
+        this.getBottomRightOccupations(diagonalOccupations, board);
+
+        return diagonalOccupations;
+    }
+
+    private void getTopLeftOccupations(LinkedList<Square> diagonalOccupations, Square[][] board) {
+        int diagonalColumn = currentSquare.getColumnPosition() - 1;
+        int diagonalRow = currentSquare.getRowPosition() - 1;
+
+        while (diagonalColumn >= 0 && diagonalRow >= 0) {
+            if (board[diagonalRow][diagonalColumn].isOccupied()) {
+                if (board[diagonalRow][diagonalColumn].getOccupyingPiece().getColor() != this.color) {
+                    diagonalOccupations.add(board[diagonalRow][diagonalColumn]);
                 }
+                break;
             } else {
-                diagOccup.add(board[yNW][xNW]);
-                yNW--;
-                xNW--;
+                diagonalOccupations.add(board[diagonalRow][diagonalColumn]);
+                diagonalRow--;
+                diagonalColumn--;
             }
         }
-        
-        while (xSW >= 0 && ySW < 8) {
-            if (board[ySW][xSW].isOccupied()) {
-                if (board[ySW][xSW].getOccupyingPiece().getColor() == this.color) {
-                    break;
-                } else {
-                    diagOccup.add(board[ySW][xSW]);
-                    break;
+    }
+
+    private void getTopRightOccupations(LinkedList<Square> diagonalOccupations, Square[][] board) {
+        int diagonalColumn = currentSquare.getColumnPosition() + 1;
+        int diagonalRow = currentSquare.getRowPosition() - 1;
+
+        while (diagonalColumn < 8 && diagonalRow >= 0) {
+            if (board[diagonalRow][diagonalColumn].isOccupied()) {
+                if (board[diagonalRow][diagonalColumn].getOccupyingPiece().getColor() != this.color) {
+                    diagonalOccupations.add(board[diagonalRow][diagonalColumn]);
                 }
+                break;
             } else {
-                diagOccup.add(board[ySW][xSW]);
-                ySW++;
-                xSW--;
+                diagonalOccupations.add(board[diagonalRow][diagonalColumn]);
+                diagonalRow--;
+                diagonalColumn++;
             }
         }
-        
-        while (xSE < 8 && ySE < 8) {
-            if (board[ySE][xSE].isOccupied()) {
-                if (board[ySE][xSE].getOccupyingPiece().getColor() == this.color) {
-                    break;
-                } else {
-                    diagOccup.add(board[ySE][xSE]);
-                    break;
+    }
+
+    private void getBottomLeftOccupations(LinkedList<Square> diagonalOccupations, Square[][] board) {
+        int diagonalColumn = currentSquare.getColumnPosition() - 1;
+        int diagonalRow = currentSquare.getRowPosition() + 1;
+
+        while (diagonalColumn >= 0 && diagonalRow < 8) {
+            if (board[diagonalRow][diagonalColumn].isOccupied()) {
+                if (board[diagonalRow][diagonalColumn].getOccupyingPiece().getColor() != this.color) {
+                    diagonalOccupations.add(board[diagonalRow][diagonalColumn]);
                 }
+                break;
             } else {
-                diagOccup.add(board[ySE][xSE]);
-                ySE++;
-                xSE++;
+                diagonalOccupations.add(board[diagonalRow][diagonalColumn]);
+                diagonalRow++;
+                diagonalColumn--;
             }
         }
-        
-        while (xNE < 8 && yNE >= 0) {
-            if (board[yNE][xNE].isOccupied()) {
-                if (board[yNE][xNE].getOccupyingPiece().getColor() == this.color) {
-                    break;
-                } else {
-                    diagOccup.add(board[yNE][xNE]);
-                    break;
+    }
+
+    private void getBottomRightOccupations(LinkedList<Square> diagonalOccupations, Square[][] board) {
+        int diagonalColumn = currentSquare.getColumnPosition() + 1;
+        int diagonalRow = currentSquare.getRowPosition() + 1;
+
+        while (diagonalColumn < 8 && diagonalRow < 8) {
+            if (board[diagonalRow][diagonalColumn].isOccupied()) {
+                if (board[diagonalRow][diagonalColumn].getOccupyingPiece().getColor() != this.color) {
+                    diagonalOccupations.add(board[diagonalRow][diagonalColumn]);
                 }
+                break;
             } else {
-                diagOccup.add(board[yNE][xNE]);
-                yNE--;
-                xNE++;
+                diagonalOccupations.add(board[diagonalRow][diagonalColumn]);
+                diagonalRow++;
+                diagonalColumn++;
             }
         }
-        
-        return diagOccup;
     }
     
     // No implementation, to be implemented by each subclass
-    public abstract List<Square> getLegalMoves(Board b);
+    public abstract List<Square> getLegalMoves(Board gameBoard);
 }

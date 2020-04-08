@@ -10,12 +10,12 @@ public class Knight extends Piece {
     }
 
     @Override
-    public List<Square> getLegalMoves(Board b) {
+    public List<Square> getLegalMoves(Board gameBoard) {
         LinkedList<Square> legalMoves = new LinkedList<Square>();
-        Square[][] board = b.getSquareArray();
+        Square[][] board = gameBoard.getSquareArray();
         
-        int x = this.getPosition().getXNum();
-        int y = this.getPosition().getYNum();
+        int x = this.getCurrentSquare().getColumnPosition();
+        int y = this.getCurrentSquare().getRowPosition();
         
         for (int i = 2; i > -3; i--) {
             for (int k = 2; k > -3; k--) {
